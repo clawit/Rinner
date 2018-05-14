@@ -176,12 +176,13 @@
             // 
             this.splitContainer.Panel2.Controls.Add(this.tabControl);
             this.splitContainer.Size = new System.Drawing.Size(784, 489);
-            this.splitContainer.SplitterDistance = 170;
+            this.splitContainer.SplitterDistance = 210;
             this.splitContainer.TabIndex = 3;
             // 
             // tvConnection
             // 
             this.tvConnection.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tvConnection.FullRowSelect = true;
             this.tvConnection.ImageIndex = 0;
             this.tvConnection.ImageList = this.imageList;
             this.tvConnection.Location = new System.Drawing.Point(0, 0);
@@ -191,7 +192,8 @@
             this.tvConnection.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode1});
             this.tvConnection.SelectedImageIndex = 0;
-            this.tvConnection.Size = new System.Drawing.Size(170, 489);
+            this.tvConnection.ShowRootLines = false;
+            this.tvConnection.Size = new System.Drawing.Size(210, 489);
             this.tvConnection.TabIndex = 0;
             this.tvConnection.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tvConnection_NodeMouseDoubleClick);
             // 
@@ -211,7 +213,7 @@
             this.tabControl.Location = new System.Drawing.Point(0, 0);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(610, 489);
+            this.tabControl.Size = new System.Drawing.Size(570, 489);
             this.tabControl.TabIndex = 0;
             // 
             // FrmMain

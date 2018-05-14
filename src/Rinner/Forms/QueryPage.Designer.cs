@@ -33,10 +33,6 @@
             this.btnQuery = new System.Windows.Forms.Button();
             this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.dvKeys = new System.Windows.Forms.DataGridView();
-            this.clmName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmTTL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmPos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer)).BeginInit();
             this.splitContainer.Panel1.SuspendLayout();
             this.splitContainer.SuspendLayout();
@@ -87,6 +83,7 @@
             this.splitContainer.Size = new System.Drawing.Size(592, 359);
             this.splitContainer.SplitterDistance = 161;
             this.splitContainer.TabIndex = 4;
+            this.splitContainer.Visible = false;
             // 
             // dvKeys
             // 
@@ -94,13 +91,9 @@
             this.dvKeys.AllowUserToDeleteRows = false;
             this.dvKeys.AllowUserToResizeRows = false;
             this.dvKeys.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dvKeys.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.clmName,
-            this.clmTTL,
-            this.clmType,
-            this.clmPos});
             this.dvKeys.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dvKeys.Location = new System.Drawing.Point(0, 0);
+            this.dvKeys.MultiSelect = false;
             this.dvKeys.Name = "dvKeys";
             this.dvKeys.ReadOnly = true;
             this.dvKeys.RowHeadersVisible = false;
@@ -108,37 +101,6 @@
             this.dvKeys.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dvKeys.Size = new System.Drawing.Size(592, 161);
             this.dvKeys.TabIndex = 0;
-            // 
-            // clmName
-            // 
-            this.clmName.FillWeight = 60F;
-            this.clmName.HeaderText = "键";
-            this.clmName.Name = "clmName";
-            this.clmName.ReadOnly = true;
-            this.clmName.Width = 200;
-            // 
-            // clmTTL
-            // 
-            this.clmTTL.FillWeight = 10F;
-            this.clmTTL.HeaderText = "存活时间";
-            this.clmTTL.Name = "clmTTL";
-            this.clmTTL.ReadOnly = true;
-            this.clmTTL.Width = 80;
-            // 
-            // clmType
-            // 
-            this.clmType.FillWeight = 10F;
-            this.clmType.HeaderText = "类型";
-            this.clmType.Name = "clmType";
-            this.clmType.ReadOnly = true;
-            // 
-            // clmPos
-            // 
-            this.clmPos.FillWeight = 20F;
-            this.clmPos.HeaderText = "数据位置";
-            this.clmPos.Name = "clmPos";
-            this.clmPos.ReadOnly = true;
-            this.clmPos.Width = 200;
             // 
             // QueryPage
             // 
@@ -167,9 +129,5 @@
         private System.Windows.Forms.Button btnQuery;
         private System.Windows.Forms.SplitContainer splitContainer;
         private System.Windows.Forms.DataGridView dvKeys;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmTTL;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn clmPos;
     }
 }

@@ -45,20 +45,22 @@
             "Html",
             "Base64 Decode",
             "Base64 Image"});
-            this.cbxFormat.Location = new System.Drawing.Point(3, 3);
+            this.cbxFormat.Location = new System.Drawing.Point(0, 0);
+            this.cbxFormat.Margin = new System.Windows.Forms.Padding(0);
             this.cbxFormat.Name = "cbxFormat";
-            this.cbxFormat.Size = new System.Drawing.Size(419, 20);
+            this.cbxFormat.Size = new System.Drawing.Size(400, 20);
             this.cbxFormat.TabIndex = 0;
+            this.cbxFormat.SelectedIndexChanged += new System.EventHandler(this.cbxFormat_SelectedIndexChanged);
             // 
             // txtValue
             // 
             this.txtValue.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtValue.Location = new System.Drawing.Point(3, 29);
+            this.txtValue.Location = new System.Drawing.Point(0, 23);
             this.txtValue.Multiline = true;
             this.txtValue.Name = "txtValue";
-            this.txtValue.Size = new System.Drawing.Size(419, 279);
+            this.txtValue.Size = new System.Drawing.Size(400, 274);
             this.txtValue.TabIndex = 1;
             // 
             // StringValuePage
@@ -67,8 +69,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.txtValue);
             this.Controls.Add(this.cbxFormat);
+            this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "StringValuePage";
-            this.Size = new System.Drawing.Size(425, 311);
+            this.Size = new System.Drawing.Size(400, 300);
             this.ResumeLayout(false);
             this.PerformLayout();
 

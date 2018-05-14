@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using RedisConnector;
+using Rinner.Helper;
 
 namespace Rinner.Forms
 {
@@ -42,26 +43,39 @@ namespace Rinner.Forms
 
             ProcessingBox.Show(new Func<object[], object>(_readKeyTTL),
                     new object[] { _cluster, input, dvKeys },
-                    (arg) => {
-                        var dt = arg as DataTable;
+                    (args) => {
+                        var dt = args[0] as DataTable;
                         dvKeys.DataSource = dt;
-                        dvKeys.CellDoubleClick += DvKeys_CellDoubleClick;
+                        dvKeys.DoubleClick += DvKeys_DoubleClick;
+                        splitContainer.Invoke(() => { splitContainer.Visible = true; });
+                        foreach (Control ctrl in splitContainer.Panel2.Controls)
+                        {
+                            splitContainer.Invoke(() => {
+                                splitContainer.Panel2.Controls.Remove(ctrl);
+                            });
+                        }
                     });
         }
 
-        private void DvKeys_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void DvKeys_DoubleClick(object sender, EventArgs e)
         {
-            var dr = dvKeys.Rows[e.RowIndex];
+            var index = dvKeys.CurrentRow.Index;
+            var dr = dvKeys.Rows[index];
             string key = dr.Cells[0].Value.ToString();
             var value = _cluster.Connection.GetDatabase().StringGet(key);
             if (value.HasValue)
             {
                 var page = new StringValuePage();
+                page.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top;
+                page.Dock = DockStyle.Fill;
                 page.StringFormat = "Text";
                 page.Value = value;
+                foreach (Control ctrl in splitContainer.Panel2.Controls)
+                {
+                    splitContainer.Panel2.Controls.Remove(ctrl);
+                }
                 splitContainer.Panel2.Controls.Add(page);
             }
-
 
         }
 
@@ -79,6 +93,7 @@ namespace Rinner.Forms
                 dt.Columns.Add("存活时间");
                 dt.Columns.Add("类型");
                 dt.Columns.Add("数据位置");
+
                 dt.Rows.Add(new string[] { key, seconds.ToString(), "String", cluster.Name });
                 return dt;
             }
